@@ -1,4 +1,10 @@
-
+.no-float{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.no-float > *{
+    flex-basis: 45%;
+}
 #targetDiv .main-container {
     display: flex;
     flex-direction: column !important;
