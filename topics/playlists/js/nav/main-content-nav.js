@@ -8,7 +8,7 @@ import {
     sideBarBtn
 } from "../ui/toggle-side-bar.js";
 
-import { lastClickedSideBarLink } from "./side-bar-nav.js";
+import { focusSidebarLink } from "./side-bar-nav.js";
 import { nxtBtn, prevBtn } from "../core/inject-content.js";
 
 export const mainTargetDiv =
@@ -87,12 +87,7 @@ export function mainContentNav({ e, focusZone }) {
             return;
         }
 
-        if (lastClickedSideBarLink) {
-            lastClickedSideBarLink.focus();
-        } else {
-            sideBarBtn?.focus?.();
-        }
-
+        focusSidebarLink();
         return;
     }
     if (key === 't') {

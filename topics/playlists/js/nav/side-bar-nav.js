@@ -18,6 +18,21 @@ let sideBarFocused = false;
 let iSideBarLinks = -1;
 let suppressIndexUpdate = false;
 
+export function focusSidebarLink({ fallbackToButton = true } = {}) {
+    const target = lastClickedSideBarLink || lastFocusedSideBarLink;
+
+    if (target && typeof target.focus === 'function') {
+        target.focus();
+        return true;
+    }
+
+    if (fallbackToButton) {
+        sideBarBtn?.focus?.();
+    }
+
+    return false;
+}
+
 export function updateLastClicked(link) {
     let i = allSideBarLinks.indexOf(link)
     lastClickedSideBarLink = allSideBarLinks[i]

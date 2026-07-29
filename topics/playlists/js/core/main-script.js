@@ -20,8 +20,7 @@ import {
 
 import {
     sideBarNav,
-    lastClickedSideBarLink,
-    lastFocusedSideBarLink
+    focusSidebarLink
 } from "../nav/side-bar-nav.js";
 
 import { mainContentNav, mainTargetDiv } from "../nav/main-content-nav.js";
@@ -58,6 +57,14 @@ function setupGlobalKeyListener() {
     addEventListener('keydown', (e) => {
         let focusZone = getFocusZone({ e });
         const key = e.key.toLowerCase();
+
+        if (key === 's') {
+            e.preventDefault();
+            e.stopPropagation();
+            focusSidebarLink();
+            return;
+        }
+
 // LETTER NAV is WORKING PERFECT, but this is awfule name for code where there is also letterFocus
         if(key == 'x' && e.shiftKey && e.metaKey) {
             isLetterNavEnabled = !isLetterNavEnabled

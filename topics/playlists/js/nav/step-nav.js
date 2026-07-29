@@ -7,7 +7,7 @@ import { pauseAllVideos } from "../ui/video-controls.js";
 import { cycleMedia, denlargeAllImages } from "../ui/toggle-img-sizes.js";
 
 import { changeTutorialLink } from "../ui/change-tutorial-link.js";
-import { lastClickedSideBarLink } from "./side-bar-nav.js";
+import { focusSidebarLink } from "./side-bar-nav.js";
 import { mainTargetDiv } from "./main-content-nav.js";
 // import { mainTargetDiv } from "./main-content-nav.js";
 
@@ -204,7 +204,7 @@ document.addEventListener('keydown', (e) => {
 
         if (key === 's') {
             e.preventDefault();
-            lastClickedSideBarLink?.focus();
+            focusSidebarLink();
             return;
         }
 
@@ -221,7 +221,8 @@ document.addEventListener('keydown', (e) => {
     if (isVideo) {
 
         if (key === 's') {
-            lastClickedSideBarLink?.focus();
+            e.preventDefault();
+            focusSidebarLink();
         }
 
         return;
