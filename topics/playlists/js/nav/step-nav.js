@@ -28,13 +28,16 @@ export function initStepNavigation({ mainTargetDiv }) {
 
     steps.forEach((step, index) => {
         step.setAttribute('tabindex', '0');
-
+        if(step.hasAttribute('data-auto-focus')){
+            step.focus()
+            scrolToCenter(step)
+        }
         step.addEventListener('focus', () => {
             lastStep = step;
             currentIndex = index;
 
+            behavior: 'smooth',
             step.scrollIntoView({
-                behavior: 'smooth',
                 block: 'center'
             });
         });
@@ -308,4 +311,7 @@ function syncStep() {
 
 export function getLastStep() {
     return lastStep;
+}
+export function scrolToCenter(el){
+    el.scrollIntoView({behavior:'smooth',block:'center'})
 }

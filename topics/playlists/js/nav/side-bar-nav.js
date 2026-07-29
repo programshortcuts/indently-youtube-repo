@@ -51,6 +51,7 @@ if (autoLink) {
     lastClickedSideBarLink = autoLink;
     lastFocusedSideBarLink = autoLink;
     injectContent(autoLink.href);
+    autoLink.removeAttribute('autofocus')
 } else {
     injectContent('homepage.html');
 }
