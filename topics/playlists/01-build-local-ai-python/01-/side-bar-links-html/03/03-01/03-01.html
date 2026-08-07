@@ -13,40 +13,28 @@
                 </p>
                 <div class="code-container">
                     <pre tabindex="0" class="copy-code">
-from 
+import request 
+from rich.console import Console
+from dataclasses import dataclass, field
+from typing import Any
 
 @dataclass
 class Agent:
     model: str = 'qwen3.5
     base_url: str = <span class="r">"Enter lm studio server adress"</span>
-    api_key: str = field(default="NO_API_KEY",repr=false)
-    messages: list[dict[str,Any]] = field(default_factory=list)</pre>
+    api_key: str = <span class="m">field</span>(default="NO_API_KEY",repr=false)
+    messages: list[dict[str,Any]] = field(default_factory=list)
+</pre>
                 </div>
+
                 
             </div>
-            <!-- <div class="imgs-container">
-                <div class="step-vid ">
-                    <video preload="none" playsinline webkit-playsinline poster="side-bar-links-html/03/images/01.png"
-                        src="side-bar-links-html/03/images/01.mov"></video>
-                
-                    <div class="vid-cntrl-btns">
-                        <button tabindex="-1" class="fwdBtn">&lt;&lt;</button>
-                        <button tabindex="-1" class="playbtn">></button>
-                        <button tabindex="-1" class="rwdBtn">>></button>
-                    </div>
-                </div>
-                <div class="step-vid ">
-                    <video preload="none" playsinline webkit-playsinline poster="side-bar-links-html/03/images/01-b.png"
-                        src="side-bar-links-html/03/images/01-b.mov"></video>
-                
-                    <div class="vid-cntrl-btns">
-                        <button tabindex="-1" class="fwdBtn">&lt;&lt;</button>
-                        <button tabindex="-1" class="playbtn">></button>
-                        <button tabindex="-1" class="rwdBtn">>></button>
-                    </div>
-                </div>
-                
-            </div> -->
+            <div class="step-txt">
+                <p>
+                    Field is ...
+                </p>
+            </div>
+
         </div>
         
 
