@@ -136,6 +136,7 @@ sideBar.addEventListener('focusout', () => sideBarFocused = false);
    MAIN KEYBOARD NAV
 ========================= */
 export function sideBarNav({ e, focusZone }) {
+    console.log()
     if (focusZone !== 'sideBar') return;
     if(e.target === sideBarBtn){
         return

@@ -26,19 +26,13 @@
     /* max-width: 50%; */
     flex-basis: 50%;
 }
-.step-content p {    
-    padding: 1% 2%;
-    line-height: 1.4;
-}
+
 .step-content > ul {    
     padding: 2% 0 ;
     /* border: 1px solid red; */
     padding-left: 20%;
 }
-.step-float{
-    margin: 1%;
-    padding: 2%;
-}
+
 .step-float ul,
 .step-float ol{
     align-self: center;

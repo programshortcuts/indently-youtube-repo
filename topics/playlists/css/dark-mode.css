@@ -27,7 +27,8 @@ body.dark-mode .page-header a:visited {
     color: var(--font-primary) !important;
 }
 .dark-mode .code-container>.copy-code {
-    color: rgb(20,20,20)
+    color: rgb(20,20,20);
+    background-color: rgb(120, 120, 128);
 }
 
 .dark-mode h3,

@@ -13,25 +13,28 @@
                 </p>
                 <div class="code-container">
                     <pre tabindex="0" class="copy-code">
-import request 
+import requests 
 from rich.console import Console
 from dataclasses import dataclass, field
 from typing import Any
 
 @dataclass
 class Agent:
-    model: str = 'qwen3.5
+    model: str = 'qwen3.5'
     base_url: str = <span class="r">"Enter lm studio server adress"</span>
-    api_key: str = field(default="NO_API_KEY",repr=false)
-    messages: <span class="m">list</span>[dict[str,Any]] = field(default_factory=list)
+    api_key: str = field(default="NO_API_KEY",repr=False)
+    messages: <span class="g">list</span>[dict[str,Any]] = field(default_factory=list)
 </pre>
                 </div>
 
                 
             </div>
             <div class="step-txt">
+                <h5><code>messages: <span class="g">list</span>[dict[str,Any]] = field(default_factory=list)</code></h5>
                 <p>
-                    List[] is ... blah
+                    List[] is put a value for attribute called messages. It should contain a list
+                    of dictionaries with string keys values. When a new Agent is created,
+                    give it its own fresh empty list.
                 </p>
             </div>
 

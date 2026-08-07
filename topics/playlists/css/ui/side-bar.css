@@ -20,6 +20,7 @@
     flex-shrink: 0;
     /* overflow: hidden; */
     /* height: calc(100vh - var(--header-height, 80px)); */
+    overflow: hidden;
 }
 #sideBarBtn {
     position: absolute;
@@ -33,6 +34,11 @@
 }
 .side-bar ul {
     list-style: decimal;
+    
+}
+.side-bar ul>li {
+    text-wrap: wrap;
+    white-space: none;
 }
 .side-bar ul>li>a {
     text-decoration: none;

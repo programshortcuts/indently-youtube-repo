@@ -25,3 +25,15 @@
 .main-container{
     padding-bottom: 7.5%;
 }
+.step-txt {
+    margin-bottom: 3%;
+}
+.step-txt p {
+    padding: 1% 2%;
+    line-height: 1.1;
+}
+
+.step-float {
+    margin: 1%;
+    padding: 2%;
+}

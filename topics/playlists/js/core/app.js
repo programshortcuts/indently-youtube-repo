@@ -57,11 +57,12 @@ function setupGlobalKeyListener() {
     addEventListener('keydown', (e) => {
         let focusZone = getFocusZone({ e });
         const key = e.key.toLowerCase();
-
+        console.log(focusZone)
         if (key === 's') {
             e.preventDefault();
             e.stopPropagation();
             focusSidebarLink();
+            sideBarNav({e,focusZone})
             return;
         }
 
@@ -74,7 +75,6 @@ function setupGlobalKeyListener() {
             document.querySelector('.page-wrapper').classList.toggle('nav-mode-colors')
             setTimeout(() => {
                 popupLetterNav.classList.remove('animate')
-                console.log('remove')
             }, 1000);
             
             return
@@ -123,7 +123,7 @@ function setupGlobalKeyListener() {
                 return;
             }
         }
-
+        
         switch (focusZone) {
 
             case 'sideBar':
