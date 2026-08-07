@@ -31,3 +31,6 @@
 #tutoralLink:active{
     border: 4px solid var(--bluecolor);
 }
+.dark-mode .side-bar ul li a.highlight {
+    padding-left: 2%;
+}

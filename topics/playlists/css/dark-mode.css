@@ -78,7 +78,8 @@ h4 .dark-mode p {
     color: var(--font-primary) !important;
 }
 body.dark-mode .side-bar ul li a.highlight {
-    color: black !important;
+    color: whitesmoke;
+    background-color: rgb(84, 72, 94);
 }
 .dark-mode button#endNxtBtn,
 .dark-mode button#prevBtn {
