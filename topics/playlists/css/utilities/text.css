@@ -8,3 +8,11 @@
     text-decoration: none;
     }
 }
+
+.side-bar ul>li>a {
+    font-size: 95%;
+}
+.side-bar ul>li>a >sup,
+.side-bar ul>li>a >sub{
+    font-size: 84%;
+}

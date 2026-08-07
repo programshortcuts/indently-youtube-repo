@@ -12,7 +12,8 @@
     
 }
 .side-bar {
-    width: var(--sidebar-width);
+    /* width: var(--sidebar-width); */
+    width: fit-content;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -20,7 +21,7 @@
     flex-shrink: 0;
     /* overflow: hidden; */
     /* height: calc(100vh - var(--header-height, 80px)); */
-    overflow: hidden;
+    overflow: scroll;
 }
 #sideBarBtn {
     position: absolute;
