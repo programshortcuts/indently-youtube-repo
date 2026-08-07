@@ -2,7 +2,7 @@
 let lastLetterPressed = null
 import { mainTargetDiv } from "../nav/main-content-nav.js"
 import { getLastStep } from "../nav/step-nav.js"
-import { pageWrapper } from "../core/main-script.js"
+import { pageWrapper } from "../core/app.js"
 export function letterNav({ e }) {
     const key = e.key.toLowerCase()
     let target

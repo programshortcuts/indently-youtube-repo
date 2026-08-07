@@ -21,6 +21,7 @@ body{
 }
 .copy-code {
     background-color: whitesmoke;
+    border: 1px solid black;
 }
 a.copy-code.visited,
 a.copy-code {
