@@ -188,14 +188,15 @@ export function sideBarNav({ e, focusZone }) {
 
     /* ---- S KEY ---- */
     if (key === 's') {
-        
-        if (isSubLink(activeEl)) {
-            const parent = getParentTopLink(activeEl);
-            if (parent) {
-                parent.focus();
-                iSideBarLinks = allSideBarLinks.indexOf(parent);
-                return;
-            }
+        console.log('here')
+        if (e.target == sideBarBtn) {
+            // const parent = getParentTopLink(activeEl);
+            // if (parent) {
+            //     parent.focus();
+            //     iSideBarLinks = allSideBarLinks.indexOf(parent);
+            //     return;
+            // }
+            return
         } else {
 
             sideBarBtn.focus();
