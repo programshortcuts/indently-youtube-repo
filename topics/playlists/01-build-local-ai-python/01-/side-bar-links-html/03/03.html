@@ -62,7 +62,7 @@ class Agent:
         if message is None:
             raise RuntimeError("Model response no message")
         response = message.get("content") or ""
-        self.messages.append({"Role": "assistant","content": response})
+        self.messages.append({"role": "assistant","content": response})
         return response
 def main() -> None:
     agent = Agent(model = 'qwen/qwen3.5-9b')

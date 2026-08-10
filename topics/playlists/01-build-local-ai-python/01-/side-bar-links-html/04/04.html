@@ -6,8 +6,10 @@
         <!-- 1.-->
         <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=LykXu60aKoY&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc"
             data-timestamp="676">
-            <div class="step-img">
-                <img loading="lazy" src="side-bar-links-html/03/images/01.png" alt="">
+            <div class="imgs-container">
+                <div class="step-img">
+                    <img loading="lazy" src="side-bar-links-html/03/images/01.png" alt="">
+                </div>
             </div>
             <div class="step-txt ">
                 <h4>1</h4>
@@ -23,7 +25,7 @@ from typing import Any
 
 @dataclass
 class Agent:
-    model: str = 'qwen/qwen3.5-9b'
+    model: str = '<span class="m">qwen/qwen3.5-9b</span>'
     base_url: str = "http://127.0.0.1:1234/v1"
     api_key: str = field(default="NO_API_KEY",repr=False)
     messages: list[dict[str,Any]] = field(default_factory=list)
@@ -56,10 +58,10 @@ class Agent:
         if message is None:
             raise RuntimeError("Model response no message")
         response = message.get("content") or ""
-        self.messages.append({"Role": "assistant","content": response})
+        self.messages.append({"role": "assistant","content": response})
         return response
 <span class="g">def main() -> None:
-    agent = Agent(model = 'qwen/qwen3.5-9b')
+    agent = Agent(model = '<span class="m">qwen/qwen3.5-9b</span>')
     console = Console()
 
     while True:
