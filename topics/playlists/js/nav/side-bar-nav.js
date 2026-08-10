@@ -187,23 +187,61 @@ export function sideBarNav({ e, focusZone }) {
     }
 
     /* ---- S KEY ---- */
-    if (key === 's') {
-        console.log('here')
-        if (e.target == sideBarBtn) {
-            // const parent = getParentTopLink(activeEl);
-            // if (parent) {
-            //     parent.focus();
-            //     iSideBarLinks = allSideBarLinks.indexOf(parent);
-            //     return;
-            // }
-            return
-        } else {
+    /* ---- S KEY ---- */
+if (key === 's') {
 
-            sideBarBtn.focus();
+    // SHIFT + S = move backward
+    if (e.shiftKey) {
+
+        // If we're on sidebar button,
+        // go back to the last clicked sidebar link.
+        if (activeEl === sideBarBtn) {
+            lastClickedSideBarLink?.focus();
             return;
         }
-        
+
+        // If we're on a child link, go to its parent dropdown.
+        const parentDropDown = getParentDropDown(activeEl);
+
+        if (parentDropDown) {
+            parentDropDown.focus();
+            return;
+        }
+
+        // Otherwise go back to sidebar button.
+        sideBarBtn.focus();
+        return;
     }
+
+
+    // S = move forward
+
+    // If we're on a nested sidebar link,
+    // go to its parent dropdown first.
+    const parentDropDown = getParentDropDown(activeEl);
+
+    if (parentDropDown) {
+        parentDropDown.focus();
+        return;
+    }
+
+    // If we're on a top-level sidebar link/dropdown,
+    // go to the sidebar button.
+    if (activeEl.closest('.side-bar-links')) {
+        sideBarBtn.focus();
+        return;
+    }
+
+    // If we're on the sidebar button,
+    // return to the last clicked sidebar link.
+    if (activeEl === sideBarBtn) {
+        lastClickedSideBarLink?.focus();
+        return;
+    }
+
+    sideBarBtn.focus();
+    return;
+}
 
     /* ---- T KEY ---- */
     if (key === 't') {
@@ -211,7 +249,14 @@ export function sideBarNav({ e, focusZone }) {
         tutorialLink?.focus();
     }
 }
+function getParentDropDown(subLink) {
+    const parentLi = subLink
+        .closest('li')
+        ?.parentElement
+        ?.closest('li');
 
+    return parentLi?.querySelector(':scope > a.drop-down') || null;
+}
 /* =========================
    SIDEBAR BUTTON
 ========================= */

@@ -17,10 +17,7 @@ let iAllSideBarLinks = 0;
 // =========================
 
 function highlightSidebar() {
-
-    allSideBarLinks.forEach(el => {
-        el.classList.remove('highlight');
-    });
+    allSideBarLinks.forEach(el => {el.classList.remove('highlight');});
 
     const current = allSideBarLinks[iAllSideBarLinks];
 
@@ -33,91 +30,89 @@ function highlightSidebar() {
         drop.classList.remove('hide');
     }
 }
-
-
-
 // =========================
 // NEXT BUTTON
 // =========================
-
-nxtBtn?.addEventListener('keydown', e => {
-    const key = e.key.toLowerCase();
-
-    if (key === 'a') {
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        const steps = document.querySelectorAll('.step-float, .step');
-
-        if (steps.length) {
-            steps[steps.length - 1].focus();
+// SO Messy 
+function nextPrevBtns(){
+    nxtBtn?.addEventListener('keydown', e => {
+        const key = e.key.toLowerCase();
+    
+        if (key === 'a') {
+    
+            e.preventDefault();
+            e.stopPropagation();
+    
+            const steps = document.querySelectorAll('.step-float, .step');
+    
+            if (steps.length) {
+                steps[steps.length - 1].focus();
+            }
+    
+            return;
         }
-
-        return;
-    }
-});
-nxtBtn?.addEventListener('click', e => {
-
-    e.preventDefault();
-
-    iAllSideBarLinks =
-        allSideBarLinks.indexOf(lastClickedSideBarLink);
-
-    iAllSideBarLinks =
-        (iAllSideBarLinks + 1) % allSideBarLinks.length;
-
-    updateLastClicked(allSideBarLinks[iAllSideBarLinks]);
-
-    const href = getHrefFromLink(allSideBarLinks[iAllSideBarLinks]);
-
-    if (href) {
-        highlightSidebar();
-        injectContent(href);
-    }
-});
-
-// =========================
-// PREV BUTTON
-// =========================
-prevBtn?.addEventListener('keydown', e => {
-    const key = e.key.toLowerCase();
-
-    if (key === 'a') {
-
+    });
+    nxtBtn?.addEventListener('click', e => {
+    
         e.preventDefault();
-        e.stopPropagation();
-
-        const steps = document.querySelectorAll('.step-float, .step');
-
-        if (steps.length) {
-            steps[steps.length - 1].focus();
+    
+        iAllSideBarLinks =
+            allSideBarLinks.indexOf(lastClickedSideBarLink);
+    
+        iAllSideBarLinks =
+            (iAllSideBarLinks + 1) % allSideBarLinks.length;
+    
+        updateLastClicked(allSideBarLinks[iAllSideBarLinks]);
+    
+        const href = getHrefFromLink(allSideBarLinks[iAllSideBarLinks]);
+    
+        if (href) {
+            highlightSidebar();
+            injectContent(href);
         }
-
-        return;
-    }
-});
-prevBtn?.addEventListener('click', e => {
-
-    e.preventDefault();
-
-    iAllSideBarLinks =
-        allSideBarLinks.indexOf(lastClickedSideBarLink);
-
-    iAllSideBarLinks =
-        (iAllSideBarLinks - 1 + allSideBarLinks.length)
-        % allSideBarLinks.length;
-
-    updateLastClicked(allSideBarLinks[iAllSideBarLinks]);
-
-    const href = getHrefFromLink(allSideBarLinks[iAllSideBarLinks]);
-
-    if (href) {
-        highlightSidebar();
-        injectContent(href);
-    }
-});
-
+    });
+    // =========================
+    // PREV BUTTON
+    // =========================
+    prevBtn?.addEventListener('keydown', e => {
+        const key = e.key.toLowerCase();
+    
+        if (key === 'a') {
+    
+            e.preventDefault();
+            e.stopPropagation();
+    
+            const steps = document.querySelectorAll('.step-float, .step');
+    
+            if (steps.length) {
+                steps[steps.length - 1].focus();
+            }
+    
+            return;
+        }
+    });
+    prevBtn?.addEventListener('click', e => {
+    
+        e.preventDefault();
+    
+        iAllSideBarLinks =
+            allSideBarLinks.indexOf(lastClickedSideBarLink);
+    
+        iAllSideBarLinks =
+            (iAllSideBarLinks - 1 + allSideBarLinks.length)
+            % allSideBarLinks.length;
+    
+        updateLastClicked(allSideBarLinks[iAllSideBarLinks]);
+    
+        const href = getHrefFromLink(allSideBarLinks[iAllSideBarLinks]);
+    
+        if (href) {
+            highlightSidebar();
+            injectContent(href);
+        }
+    });
+}
+nextPrevBtns()
 // =========================
 // CONTENT LOADER
 // =========================

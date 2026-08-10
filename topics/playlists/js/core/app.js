@@ -57,8 +57,8 @@ function setupGlobalKeyListener() {
     addEventListener('keydown', (e) => {
         let focusZone = getFocusZone({ e });
         const key = e.key.toLowerCase();
-        console.log(focusZone)
-        if (key === 's') {
+        if (key === 's' && focusZone != 'sideBar') {
+            console.log(focusZone)
             e.preventDefault();
             e.stopPropagation();
             focusSidebarLink();
