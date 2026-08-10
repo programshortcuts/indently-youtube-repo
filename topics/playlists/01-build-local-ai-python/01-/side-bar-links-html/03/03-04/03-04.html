@@ -24,9 +24,8 @@ class Agent:
     api_key: str = field(default="NO_API_KEY",repr=False)
     messages: list[dict[str,Any]] = field(default_factory=list)
 
-    def __post_init__(self) -> None:
+    def <span class="papa">__post_init__</span>(self) -> None:
         self.base_url = self.base_url.<span class="m">rstrip('/')</span>
-    
 </pre>
                 </div>
                 <p>

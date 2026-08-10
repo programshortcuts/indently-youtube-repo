@@ -1,6 +1,9 @@
 .b {color: blue;}
 .gr {color: green !important;}
 /* .gr-bor {border: 3px solid green !important;} */
+.papa {
+    color: rgb(146, 161, 37);
+}
 .g{color: gold;}
 .m {
     font-weight: 600;

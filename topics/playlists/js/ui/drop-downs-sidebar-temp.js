@@ -6,27 +6,22 @@ export function initDropDowns() {
     hideTopicSnips()
     function handleToggle(e) {
         let link;
-        
-        
-        // console.log(typeof(e.key.toLowerCase()))
         // --- Handle keyboard activation ---
         if (e.type === "keydown") {
             const key = e.key.toLowerCase()
-            if(key === 'm'){
-                mainTargetDiv.focus()
-            }
+            // if(key === 'm'){
+            console.log('here')
+            //     mainTargetDiv.focus()
+            // }
             const dropdown =
                 e.target.classList.contains("drop-down")
                     ? e.target
                     : null;
-
             if (
                 dropdown &&
                 (e.key === "Enter" || e.key === " ")
             ) {
-
                 e.preventDefault();
-
                 link = dropdown;
 
             } else {
