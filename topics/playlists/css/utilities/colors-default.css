@@ -2,7 +2,10 @@
 .gr {color: green !important;}
 /* .gr-bor {border: 3px solid green !important;} */
 .g{color: gold;}
-.m {color: magenta !important;}
+.m {
+    font-weight: 600;
+    color: rgb(131, 83, 183) !important;
+}
 .o {color: orange;}
 .r{color: red;}
 .t{color: lightseagreen;}

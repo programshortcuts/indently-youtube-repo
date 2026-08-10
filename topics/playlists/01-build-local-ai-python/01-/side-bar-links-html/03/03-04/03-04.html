@@ -6,7 +6,7 @@
     <div class="steps-container">
         <!-- 1.-->
         <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=LykXu60aKoY&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc"
-            data-timestamp="335">
+            data-timestamp="410">
             <h4>1</h4>
             <div class="step-txt ">
                     
@@ -24,19 +24,15 @@ class Agent:
     api_key: str = field(default="NO_API_KEY",repr=False)
     messages: list[dict[str,Any]] = field(default_factory=list)
 
+    def __post_init__(self) -> None:
+        self.base_url = self.base_url.<span class="m">rstrip('/')</span>
     
 </pre>
                 </div>
                 <p>
-                    Within the <code class="lsg">Agent</code> class
+                    <span class="m">rstrip('/')</span> get's rid of trailing forward / at end of url if one
                 </p>
-
-                
             </div>
-            <div class="step-img">
-                <img loading="lazy" src="side-bar-links-html/01/images/04.png" alt="">
-            </div>
-            
 
         </div>
         
