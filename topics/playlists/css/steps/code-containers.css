@@ -1,10 +1,17 @@
+.step-txt .code-container{
+    /* width: fit-content; */
+    /* max-width: 95vw !important; */
+    overflow-x: scroll;
+}
 .code-container>textarea.copy-code,
-/* .code-container>textarea.copy-code, */
+.code-container>code.copy-code,
 .code-container>pre.copy-code {
     padding: 1%;
     border-radius: 8px;
     height: fit-content !important;
-    max-width: 55vw !important;
+    min-width: 40vw;
+    width:max-content;;
+    max-width: 90vw !important;
     max-height: 50vh;
     overflow: hidden;
     overflow-y: scroll;

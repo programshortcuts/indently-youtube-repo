@@ -1,15 +1,17 @@
 <!-- 03-02.html -->
 <div id="targetDiv">
     <header>
-        <h3 id="targetHeaderh3">03-01 <code class="g">field()</code></h3>
+        <h3 id="targetHeaderh3">3. Basic script (question via script)</h3>
     </header>
     <div class="steps-container">
         <!-- 1.-->
         <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=LykXu60aKoY&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc"
-            data-timestamp="335">
+            data-timestamp="300">
             <div class="step-txt ">
                 <h4>1</h4>
-                
+                <p>
+                    Basic python script
+                </p>
                 <div class="code-container">
                     <pre tabindex="0" class="copy-code">
 import requests 
@@ -21,23 +23,19 @@ from typing import Any
 class Agent:
     model: str = 'qwen3.5'
     base_url: str = <span class="r">"Enter lm studio server adress"</span>
-    api_key: str = <span class="g">field</span>(<span class="m">default</span>=<span class="o">"NO_API_KEY"</span>,repr=False)
-    messages: list[dict[str,Any]] = field(default_factory=list)
+    api_key: str = field(default="NO_API_KEY",repr=False)
+    messages: <span class="g">list</span>[dict[str,Any]] = field(default_factory=list)
 </pre>
                 </div>
 
                 
             </div>
             <div class="step-txt">
-                <h5><code>api_key: str = <span class="g">field</span>(<span class="m">default</span>=<span class="o">"NO_API_KEY"</span>,repr=False)</code></h5>
+                <h5><code>messages: <span class="g">list</span>[dict[str,Any]] = field(default_factory=list)</code></h5>
                 <p>
-                    Field is had <code class="m">default</code> which like js, means 
-                    if no value is entered, "use this exact value"
-                </p>
-                <p>
-                    Here if 
-                    If the user doesn't provide an api_key, use <code class="o">"NO_API_KEY"</code>.
-
+                    List[] is put a value for attribute called messages. It should contain a list
+                    of dictionaries with string keys values. When a new Agent is created,
+                    give it its own fresh empty list.
                 </p>
             </div>
 

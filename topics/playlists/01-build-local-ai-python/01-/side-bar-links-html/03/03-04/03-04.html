@@ -1,4 +1,4 @@
-<!-- 03-01.html -->
+<!-- 03-04.html -->
 <div id="targetDiv">
     <header>
         <h3 id="targetHeaderh3">03-01 <code class="o">'base_url'</code></h3>
@@ -9,10 +9,7 @@
             data-timestamp="335">
             <h4>1</h4>
             <div class="step-txt ">
-                <p>
-                    Get the base url from lm studio, and add <span class="m">/v1</span>
-                    to it to use it as an api
-                </p>    
+                    
                 <div class="code-container">
                     <pre tabindex="0" class="copy-code">
 import requests 
@@ -26,8 +23,13 @@ class Agent:
     base_url: str = "<span class="r">http://127.0.0.1:1234</span><span class="m">/v1</span>"
     api_key: str = field(default="NO_API_KEY",repr=False)
     messages: list[dict[str,Any]] = field(default_factory=list)
+
+    
 </pre>
                 </div>
+                <p>
+                    Within the <code class="lsg">Agent</code> class
+                </p>
 
                 
             </div>

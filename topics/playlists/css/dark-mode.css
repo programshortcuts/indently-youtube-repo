@@ -23,7 +23,8 @@ body.dark-mode .step-float:active{
 
     background: rgb(40,40,40,.8);
 }
-body.dark-mode .page-header a:visited {
+body.dark-mode .page-header a:visited,
+body.dark-mode .page-header a{
     color: var(--font-primary) !important;
 }
 .dark-mode .code-container>.copy-code {
@@ -76,7 +77,7 @@ h4 .dark-mode p {
     color: whitesmoke;
 }
 .dark-mode .side-bar ul li a {
-    color: var(--font-primary) !important;
+    color: whitesmoke !important; 
 }
 body.dark-mode .side-bar ul li a.highlight {
     color: whitesmoke;
