@@ -1,25 +1,30 @@
 <!-- 2-04.html -->
 <div id="targetDiv">
     <header>
-        <h3 >2-05. Full script <code><span class="m">input</span>()</code></h3>
+        <h3 >2-01.</h3>
     </header>
     <div class="steps-container">
         <div  tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=ILKQftdngaE&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc&index=3"
-        data-timestamp="570">
+        data-timestamp="109">
         <div class="step-txt ">
             <h4>1</h4>
             <p>
-                put <code class="m">input()</code> in main <code>while True:</code> loop
+                Add imports 
             </p>
             <div class="code-container">
+                <code tabindex="0" class="copy-code m">
+from typing import Annotated, get_orgin, get_args, Any, Callable, Union, Final </code>
+            </div>
+            
+            <div class="code-container">
                 <pre tabindex="0" class="copy-code">
-                    import requests
-from typing import Callable,Any
+import requests
+<span class="m">from typing import Annotated, get_orgin, get_args, Any, Callable, Union, Final </span>
 from dataclasses import dataclass, field
-
 from rich.console import Console
 import datetime
 import getpass
+
 @dataclass
 class Agent:
     system_prompt: str = "answer in french only"
@@ -36,80 +41,10 @@ class Agent:
         self.contexts[func.__name__] = func
         return func
 
-    def chat(self, user_message: str) -> str:
-        self.messages.append({"role":"user", "content":user_message})
-
-        context_content = "\n\n".join(
-            f"<context>\n<{n}>{fn()}</{n}><\n</context>"
-            for n,fn in self.contexts.items()
-        )
-
-        prefix: list[dict[str, Any]] = [
-            {"role": "system", "content": self.system_prompt},
-            # IS this correct ??? system twice??
-            {"role": "system", "content": context_content},
-        ]
-
-        url = f"{self.base_url}/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-        }
-        r = requests.post(
-            url,
-            headers=headers,
-            json={"model": self.model, "messages": prefix + self.messages},
-            timeout=300,
-        )
-        r.raise_for_status()
-        data = r.json()
-        choices = data.get("choices")
-
-        if not choices:
-            raise RuntimeError("Model response missing choices")
-
-        message = choices[0].get("message")
-        if message is None:
-            raise RuntimeError("response missing message")
-
-        response = message.get("content") or ""
-        self.messages.append({"role":"assistant","content": response})
-        return response
-def main() -> None:
-    agent = Agent(
-        model="qwen/qwen3.5-9b",
-        system_prompt="Tell me a rodney dangerfield joke at end of response",
-    )
-    @agent.context 
-    def user_context() -> str:
-        return(
-            # f"Current data and time: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-            f"Current data and time: {datetime.datetime.now().strftime('%Y-%m- %H:%M:%S')}\n"
-            f"Current User: {getpass.getuser()}\n"
-        )
-
-    console = Console()
-    while True:
-        console.print("[green]You:[/green]", end="")
-        user_input = console.input()
-        if user_input.strip().lower() in {":q","qui","exit"}:
-            console.print("[dim] peace playa[/dim]")
-            return
-        with console.status("[dim]Thinking...[/dim]",spinner="arc"):
-            response = agent.chat('What time is it and who am i')
-        console.print(f"[blue]Ai Assistant:[/blue] {response}")
- 
-if __name__ ==  '__main__':
-    main()
-
+    
 </pre>
             </div>
-            
         </div>
     </div>
-        
-        
-        
- 
     </div>
 </div>
