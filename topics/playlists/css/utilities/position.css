@@ -10,3 +10,6 @@
 }
 #darkModeBtn{
 }
+.lesson-btns-container{
+    z-index: 9999
+}
