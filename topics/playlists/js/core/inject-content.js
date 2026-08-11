@@ -118,7 +118,6 @@ nextPrevBtns()
 // =========================
 
 export function injectContent(href) {
-
     fetch(href)
         .then(res => {
             if (!res.ok) throw new Error(res.status);
