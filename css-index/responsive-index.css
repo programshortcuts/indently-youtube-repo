@@ -1,0 +1,6 @@
+@media screen and (min-width:700px){
+    .resource {
+        max-width: 20vh;
+        border: 1px solid blue;
+    }
+}
