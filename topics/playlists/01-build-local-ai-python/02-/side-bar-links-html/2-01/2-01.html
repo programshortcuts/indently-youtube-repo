@@ -43,7 +43,7 @@ class <span class="c">Agent</span>:
             <div class="step-txt ">
                 <h4>1</h4>
                 <p>
-                    Add a <code class="ly">context</code> to  <code>Agent</code> class 
+                    Add a <code class="ly">contexts</code> to  <code>Agent</code> class 
                     and <code class="t">context</code> decorator below that class 
                     in to previous script
                 </p>
@@ -55,14 +55,14 @@ class <span class="c">Agent</span>:
     model: str = "qwen/qwen3.5-9b"
     base_url: str = "http://127.0.0.1:1234/v1"
     api_key:  str = field(default="NO_API_KEY", repr=False)
-    <span class="ly">context</span>: Dict[str, Callable[[],str]] = field(default_factory=Dict)
+    <span class="ly">contexts</span>: Dict[str, Callable[[],str]] = field(default_factory=Dict)
     message: list[dict[str,Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         self.base_url = self.base_url.rstrip('/')
     
     def <span class="t">context</span>(self, func: Callable[[], str]) -> Callable[[],str]:
-        self.<span class="ly">context</span>[func.__name__] = func
+        self.<span class="ly">contexts</span>[func.__name__] = func
         return func
 
 </pre>
