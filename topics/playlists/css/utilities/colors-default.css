@@ -1,3 +1,4 @@
+.lb {color: rgb(142, 200, 209);}
 .b {color: blue;}
 .gr {color: green !important;}
 /* .gr-bor {border: 3px solid green !important;} */
@@ -12,3 +13,5 @@
 .o {color: orange;}
 .r{color: red;}
 .t{color: lightseagreen;}
+.ly{color: rgb(199, 199, 131);}
+.y{color: yellow;}

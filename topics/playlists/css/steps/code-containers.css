@@ -1,8 +1,10 @@
 .step-txt .code-container{
-    /* width: fit-content; */
-    /* max-width: 95vw !important; */
+    width: auto;
+    min-width: 40vw;
+    max-width: 90vw !important;
+    clear: none;
     max-height: 90vh;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 .code-container>textarea.copy-code,
 .code-container>code.copy-code,
@@ -10,11 +12,11 @@
     padding: 1%;
     border-radius: 8px;
     height: fit-content !important;
+    width: 100%;
     min-width: 40vw;
-    width:max-content;;
-    max-width: 90vw !important;
+    max-width: 100% !important;
     max-height: 90vh;
-    overflow: hidden;
-    /* overflow-x: scroll; */
-    overflow-y: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: pre;
 }

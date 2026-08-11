@@ -25,6 +25,22 @@
 
 }
 
+.step-txt {
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+}
+
+.step-txt .code-container {
+    position: relative;
+    z-index: 11;
+}
+
+.step-float>.step-img,
+.step-float>.step-vid {
+    z-index: 0;
+}
+
 /* =========================
    ENLARGED STATE (GLOBAL TOP LAYER)
    ========================= */
