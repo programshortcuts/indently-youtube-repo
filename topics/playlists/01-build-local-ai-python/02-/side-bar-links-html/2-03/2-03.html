@@ -27,14 +27,51 @@ import getpass
                 <p>
                     update the main script.
                 </p>
+                
+                
+                
+                
+            </div>
+        </div>
+        <div  tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=ILKQftdngaE&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc&index=3"
+            data-timestamp="360">
+            
+            <div class="step-txt ">
+                <h4>1</h4>
+                <p>
+                    create <code>def <span class="g">main()</span></code>
+                </p>
                 <p>
                     make sure you have full path for model
                 </p>
                 <div class="code-container">
-                    <code tabindex="0" class="copy-code">
+                    <code tabindex="0" class="copy-code m">
                         qwen/qwen3.5-9b</code>
                 </div>
-                
+                <div class="code-container">
+                    <pre tabindex="0" class="copy-code">
+def <span class="g">main</span>() -> None:
+    agent = Agent(
+        model="<span class="m">qwen/qwen3.5-9b</span>",
+        system_prompt="Tell me a joke in chinese at end of response",
+    )
+    @agent.context
+    def user_context() -> str:
+        return(
+            # f"Current data and time: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+            f"Current data and time: {datetime.datetime.now().strftime('%Y-%m- %H:%M:%S')}\n"
+            f"Current User: {getpass.getuser()}\n"
+        )
+    console = Console
+    with console.status("[dim]Thinking...[/dim]",spinner="arc"):
+        response = agent.chat('What time is it and who am i')
+    console.print(f"[blue]You: [/blue] what time is it now")
+    console.print(f"[blue]Ai Assistant:[/blue] {response}")
+
+if __name__ ==  '__init__main__':
+    main()
+</pre>
+                </div>   
                 
                 
             </div>
