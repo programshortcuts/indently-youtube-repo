@@ -10,24 +10,85 @@
             <div class="step-txt ">
                 <h4>1</h4>
                 <p>
-                    Change the <code><span class="ly">chat</span>()</code> method from 
+                    Add <code class="lrb">context_content</code>, and <code class="lrb">prefix</code> to the
+                    <code><span class="ly">chat</span>()</code> method from 
                     previous script, <a data-link target="_blank" href="https://programshortcuts.github.io/indently-youtube-repo/topics/playlists/01-build-local-ai-python/01-/01-.html">01-</a>
                      first vid from playlist page 
                 </p>
                 <p>
-                    <code class="lrb">context_content</code>
+                    <code class="lrb">context_content</code>, calls all registered context functions,.. ? don't get quite yet
                 </p>
                 <div class="code-container">
                     <pre tabindex="0" class="copy-code">
 class <span class="ly">chat</span>(self, user_message: str) ->:
-    <span class="lrb">context_content</span>
-    
-    
+    self.messages.append({"role":"User","content": user_message})
+    <span class="lrb">context_content</span> = "\n\n".join(
+        f"&lt;context>\n&lt;{fn()}&lt;{n}>&lt;\n&lt;/context>"
+        for n, fn in self.contexts.items()
+    )
+    <span class="lrb">prefix</span> = list[dict[str,Any]] = [
+        {"role":"system","content":self.<span class="g">system_prompt</span>},
+        {"role":"system","content",<span class="lrb">context_content</span>},
+    ]
 </pre>
                 </div>
                 
             </div>
         </div>
+        <div  tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=ILKQftdngaE&list=PL4KX3oEgJcfcPez5tpvsdC1ghaNFo1Bhc&index=3"
+        data-timestamp="300">
+        <div class="step-txt ">
+            <h4>1</h4>
+            <p>
+                keep the <code class="o">url, headers, request </code> 
+            </p>
+            <p>
+                <code class="lrb">context_content</code>, calls all registered context functions,.. ? don't get quite yet
+            </p>
+            <div class="code-container">
+                <pre tabindex="0" class="copy-code">
+class <span class="ly">chat</span>(self, user_message: str) ->:
+    self.messages.append({"role":"User","content": user_message})
+    context_content = "\n\n".join(
+        f"&lt;context>\n&lt;{fn()}&lt;{n}>&lt;\n&lt;/context>"
+        for n, fn in self.contexts.items()
+    )
+    prefix = list[dict[str,Any]] = [
+        {"role":"system","content":self.<span class="g">system_prompt</span>},
+        {"role":"system","content",context_content},
+    ]
+    <span class="o">url</span> = f"{self.base_url}/chat/completions
+    <span class="o">headers</span> = {
+        "Authorization": f"Bearer:{self.api_key}",
+        "Content-Type": "application.json",
+    }
+    <span class="o"></span> = requests.post(
+        url,
+        headers=headers,
+        json={"model": self.model, "messages", <span class="lrb">prefix</span> + self.messages},
+        timeout=300,
+    )
+    r.raise_for_status()
+    data = r.json()
+    choices = data.get("choices")
+
+    if not choices:
+        raise RuntimeError("Model response missing choices")
+
+    message = choices[0].get("message")
+    if message is None:
+        raise RuntimeError("response missing message")
+        
+    response = message[0].get("content") or ""
+    self.messages.append({"role":"assistant","content": response})
+    return response
+    
+
+</pre>
+            </div>
+            
+        </div>
+    </div>
         
  
     </div>
