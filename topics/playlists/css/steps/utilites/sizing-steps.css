@@ -1,0 +1,8 @@
+/* sizing-steps.css */
+.step-floats-container {
+    width: 100%;
+}
+.imgs-container>*>video,
+.imgs-container>*>img {
+    width: 100%;
+}

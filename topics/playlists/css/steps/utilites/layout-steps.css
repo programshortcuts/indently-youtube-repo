@@ -1,0 +1,47 @@
+/* layout-steps.css */
+.no-float {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.no-float>* {flex-basis: 45%;}
+
+#targetDiv .main-container {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#navLessonTitle {
+    display: flex;
+    align-content: center;
+}
+
+.step-float>.step-txt {
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+.step-float ul,
+.step-float ol {
+    align-self: center;
+}
+.imgs-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.imgs-container>* {
+    flex-basis: 40%;
+}
+.step-floats-container {
+    display: flex;
+}
+
+.step-floats-container>.step-float {
+    flex-basis: 40%;
+}

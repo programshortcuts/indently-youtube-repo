@@ -23,7 +23,6 @@
     transition: all 0.05s ease;
     touch-action: manipulation;
 
-    z-index: 1;
 }
 
 /* =========================

@@ -1,10 +1,21 @@
 @import url('dark-mode.css');
 @import url('responsive.css');
-/* @import url('steps.css'); */
 /* uis */
 @import url('ui/toggle-side-bar.css');
 @import url('ui/side-bar.css');
 @import url('ui/copyCode.css');
+/* STEPS */
+@import url('steps/step-text.css');
+@import url('steps/code-containers.css');
+@import url('steps/toggle-img-sizes.css');
+/* utilities -> steps */
+@import url('steps/utilites/layout-steps.css');
+@import url('steps/utilites/postiion-steps.css');
+@import url('steps/utilites/sizing-steps.css');
+@import url('steps/utilites/z-index-steps.css');
+@import url('steps/utilites/spacing-steps.css');
+
+
 /* utilities -> header */
 @import url('utilities/header/grid.css');
 @import url('utilities/header/layout.css');
@@ -20,10 +31,8 @@
 @import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/text.css');
-/* utilities -> steps */
-@import url('steps/step-text.css');
-@import url('steps/code-containers.css');
-@import url('steps/imgSizes.css');
+
+
 
 *{
     margin: 0;

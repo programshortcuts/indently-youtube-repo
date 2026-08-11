@@ -1,0 +1,9 @@
+.step-float ul,
+.step-float ol {
+    margin: 0 5%;
+}
+
+.step-content>ul {
+    padding: 2% 0;
+    padding-left: 20%;
+}

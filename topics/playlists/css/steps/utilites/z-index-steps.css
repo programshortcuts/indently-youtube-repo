@@ -1,0 +1,6 @@
+.step-txt,.step-vid{
+    z-index: 0
+}
+.code-container {
+    z-index: 10;
+}
