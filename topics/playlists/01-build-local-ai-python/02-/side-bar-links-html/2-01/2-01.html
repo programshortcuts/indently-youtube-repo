@@ -1,7 +1,7 @@
 <!-- 2-01.html -->
 <div id="targetDiv">
     <header>
-        <h3 >2-1. <code class="lc">context</code></h3>
+        <h3 >2-1. <code class="lc">contexts</code></h3>
     </header>
     <div class="steps-container">
         <!-- 1.-->
@@ -21,12 +21,12 @@
                     <pre tabindex="0" class="copy-code">
 @dataclass
 class <span class="c">Agent</span>:
-    <span class="y">system_prompt</span>: str = <span class="fgr">"answer in french only</span>
+    <span class="y">system_prompt</span>: str = <span class="fgr">"answer in french only"</span>
     model: str = "qwen/qwen3.5-9b"
     base_url: str = "http://127.0.0.1:1234/v1"
     api_key:  str = field(default="NO_API_KEY", repr=False)
-    <span class="ly">context</span>: Dict[str, Callable[[],str]] = field(default_factory=Dict)
-    message: list[dict[str,Any]] = field(default_factory=list)
+    <span class="ly">contexts</span>: dict[str, Callable[[],str]] = field(default_factory=dict)
+    messages: list[dict[str,Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         self.base_url = self.base_url.rstrip('/')
@@ -51,12 +51,12 @@ class <span class="c">Agent</span>:
                     <pre tabindex="0" class="copy-code">
 @dataclass
 class <span class="c">Agent</span>:
-    <span class="y">system_prompt</span>: str = <span class="fgr">"answer in french only</span>
+    <span class="y">system_prompt</span>: str = <span class="fgr">"answer in french only"</span>
     model: str = "qwen/qwen3.5-9b"
     base_url: str = "http://127.0.0.1:1234/v1"
     api_key:  str = field(default="NO_API_KEY", repr=False)
-    <span class="ly">contexts</span>: Dict[str, Callable[[],str]] = field(default_factory=Dict)
-    message: list[dict[str,Any]] = field(default_factory=list)
+    <span class="ly">contexts</span>: dict[str, Callable[[],str]] = field(default_factory=dict)
+    messages: list[dict[str,Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         self.base_url = self.base_url.rstrip('/')
